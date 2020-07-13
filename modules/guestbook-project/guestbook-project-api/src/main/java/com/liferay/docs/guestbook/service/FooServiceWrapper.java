@@ -14,8 +14,6 @@
 
 package com.liferay.docs.guestbook.service;
 
-import aQute.bnd.annotation.ProviderType;
-
 import com.liferay.portal.kernel.service.ServiceWrapper;
 
 /**
@@ -25,18 +23,18 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  * @see FooService
  * @generated
  */
-@ProviderType
-public class FooServiceWrapper implements FooService,
-	ServiceWrapper<FooService> {
+public class FooServiceWrapper
+	implements FooService, ServiceWrapper<FooService> {
+
 	public FooServiceWrapper(FooService fooService) {
 		_fooService = fooService;
 	}
 
 	/**
-	* Returns the OSGi service identifier.
-	*
-	* @return the OSGi service identifier
-	*/
+	 * Returns the OSGi service identifier.
+	 *
+	 * @return the OSGi service identifier
+	 */
 	@Override
 	public String getOSGiServiceIdentifier() {
 		return _fooService.getOSGiServiceIdentifier();
@@ -53,4 +51,5 @@ public class FooServiceWrapper implements FooService,
 	}
 
 	private FooService _fooService;
+
 }
