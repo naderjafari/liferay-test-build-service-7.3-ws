@@ -8,7 +8,7 @@ dependencies {
 	compileOnly group: "org.osgi", name: "org.osgi.annotation.versioning"
 	compileOnly group: "org.osgi", name: "org.osgi.core"
 	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations"
-    serviceBuilder group: "com.liferay", name: "com.liferay.portal.tools.service.builder", version: "1.0.349"
+//    serviceBuilder group: "com.liferay", name: "com.liferay.portal.tools.service.builder", version: "1.0.349"
 
 	compileOnly project(":modules:guestbook-project:guestbook-project-api")
 }
