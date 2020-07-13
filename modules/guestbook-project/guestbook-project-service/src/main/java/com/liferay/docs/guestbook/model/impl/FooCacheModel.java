@@ -14,10 +14,13 @@
 
 package com.liferay.docs.guestbook.model.impl;
 
+import aQute.bnd.annotation.ProviderType;
+
 import com.liferay.docs.guestbook.model.Foo;
-import com.liferay.petra.lang.HashUtil;
-import com.liferay.petra.string.StringBundler;
+
 import com.liferay.portal.kernel.model.CacheModel;
+import com.liferay.portal.kernel.util.HashUtil;
+import com.liferay.portal.kernel.util.StringBundler;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -30,21 +33,22 @@ import java.util.Date;
  * The cache model class for representing Foo in entity cache.
  *
  * @author Brian Wing Shun Chan
+ * @see Foo
  * @generated
  */
+@ProviderType
 public class FooCacheModel implements CacheModel<Foo>, Externalizable {
-
 	@Override
-	public boolean equals(Object object) {
-		if (this == object) {
+	public boolean equals(Object obj) {
+		if (this == obj) {
 			return true;
 		}
 
-		if (!(object instanceof FooCacheModel)) {
+		if (!(obj instanceof FooCacheModel)) {
 			return false;
 		}
 
-		FooCacheModel fooCacheModel = (FooCacheModel)object;
+		FooCacheModel fooCacheModel = (FooCacheModel)obj;
 
 		if (fooId == fooCacheModel.fooId) {
 			return true;
@@ -183,7 +187,8 @@ public class FooCacheModel implements CacheModel<Foo>, Externalizable {
 	}
 
 	@Override
-	public void writeExternal(ObjectOutput objectOutput) throws IOException {
+	public void writeExternal(ObjectOutput objectOutput)
+		throws IOException {
 		if (uuid == null) {
 			objectOutput.writeUTF("");
 		}
@@ -242,5 +247,4 @@ public class FooCacheModel implements CacheModel<Foo>, Externalizable {
 	public int field3;
 	public long field4;
 	public String field5;
-
 }

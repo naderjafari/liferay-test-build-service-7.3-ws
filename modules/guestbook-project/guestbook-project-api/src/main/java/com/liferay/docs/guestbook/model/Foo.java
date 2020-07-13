@@ -14,31 +14,30 @@
 
 package com.liferay.docs.guestbook.model;
 
+import aQute.bnd.annotation.ProviderType;
+
 import com.liferay.portal.kernel.annotation.ImplementationClassName;
 import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.util.Accessor;
-
-import org.osgi.annotation.versioning.ProviderType;
 
 /**
  * The extended model interface for the Foo service. Represents a row in the &quot;FOO_Foo&quot; database table, with each column mapped to a property of this class.
  *
  * @author Brian Wing Shun Chan
  * @see FooModel
+ * @see com.liferay.docs.guestbook.model.impl.FooImpl
+ * @see com.liferay.docs.guestbook.model.impl.FooModelImpl
  * @generated
  */
 @ImplementationClassName("com.liferay.docs.guestbook.model.impl.FooImpl")
 @ProviderType
 public interface Foo extends FooModel, PersistedModel {
-
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify this interface directly. Add methods to <code>com.liferay.docs.guestbook.model.impl.FooImpl</code> and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 * Never modify this interface directly. Add methods to {@link com.liferay.docs.guestbook.model.impl.FooImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
-	public static final Accessor<Foo, Long> FOO_ID_ACCESSOR =
-		new Accessor<Foo, Long>() {
-
+	public static final Accessor<Foo, Long> FOO_ID_ACCESSOR = new Accessor<Foo, Long>() {
 			@Override
 			public Long get(Foo foo) {
 				return foo.getFooId();
@@ -53,7 +52,5 @@ public interface Foo extends FooModel, PersistedModel {
 			public Class<Foo> getTypeClass() {
 				return Foo.class;
 			}
-
 		};
-
 }

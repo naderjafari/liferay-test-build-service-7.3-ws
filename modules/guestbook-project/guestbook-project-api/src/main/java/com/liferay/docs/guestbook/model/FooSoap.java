@@ -14,6 +14,8 @@
 
 package com.liferay.docs.guestbook.model;
 
+import aQute.bnd.annotation.ProviderType;
+
 import java.io.Serializable;
 
 import java.util.ArrayList;
@@ -24,10 +26,11 @@ import java.util.List;
  * This class is used by SOAP remote services, specifically {@link com.liferay.docs.guestbook.service.http.FooServiceSoap}.
  *
  * @author Brian Wing Shun Chan
+ * @see com.liferay.docs.guestbook.service.http.FooServiceSoap
  * @generated
  */
+@ProviderType
 public class FooSoap implements Serializable {
-
 	public static FooSoap toSoapModel(Foo model) {
 		FooSoap soapModel = new FooSoap();
 
@@ -217,5 +220,4 @@ public class FooSoap implements Serializable {
 	private int _field3;
 	private Date _field4;
 	private String _field5;
-
 }

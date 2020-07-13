@@ -14,13 +14,21 @@
 
 package com.liferay.docs.guestbook.model;
 
+import aQute.bnd.annotation.ProviderType;
+
+import com.liferay.expando.kernel.model.ExpandoBridge;
+
 import com.liferay.exportimport.kernel.lar.StagedModelType;
+
 import com.liferay.portal.kernel.model.ModelWrapper;
-import com.liferay.portal.kernel.model.wrapper.BaseModelWrapper;
+import com.liferay.portal.kernel.service.ServiceContext;
+
+import java.io.Serializable;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * <p>
@@ -31,11 +39,20 @@ import java.util.Map;
  * @see Foo
  * @generated
  */
-public class FooWrapper
-	extends BaseModelWrapper<Foo> implements Foo, ModelWrapper<Foo> {
-
+@ProviderType
+public class FooWrapper implements Foo, ModelWrapper<Foo> {
 	public FooWrapper(Foo foo) {
-		super(foo);
+		_foo = foo;
+	}
+
+	@Override
+	public Class<?> getModelClass() {
+		return Foo.class;
+	}
+
+	@Override
+	public String getModelClassName() {
+		return Foo.class.getName();
 	}
 
 	@Override
@@ -140,329 +157,460 @@ public class FooWrapper
 		}
 	}
 
+	@Override
+	public Object clone() {
+		return new FooWrapper((Foo)_foo.clone());
+	}
+
+	@Override
+	public int compareTo(Foo foo) {
+		return _foo.compareTo(foo);
+	}
+
 	/**
-	 * Returns the company ID of this foo.
-	 *
-	 * @return the company ID of this foo
-	 */
+	* Returns the company ID of this foo.
+	*
+	* @return the company ID of this foo
+	*/
 	@Override
 	public long getCompanyId() {
-		return model.getCompanyId();
+		return _foo.getCompanyId();
 	}
 
 	/**
-	 * Returns the create date of this foo.
-	 *
-	 * @return the create date of this foo
-	 */
+	* Returns the create date of this foo.
+	*
+	* @return the create date of this foo
+	*/
 	@Override
 	public Date getCreateDate() {
-		return model.getCreateDate();
+		return _foo.getCreateDate();
+	}
+
+	@Override
+	public ExpandoBridge getExpandoBridge() {
+		return _foo.getExpandoBridge();
 	}
 
 	/**
-	 * Returns the field1 of this foo.
-	 *
-	 * @return the field1 of this foo
-	 */
+	* Returns the field1 of this foo.
+	*
+	* @return the field1 of this foo
+	*/
 	@Override
 	public String getField1() {
-		return model.getField1();
+		return _foo.getField1();
 	}
 
 	/**
-	 * Returns the field2 of this foo.
-	 *
-	 * @return the field2 of this foo
-	 */
+	* Returns the field2 of this foo.
+	*
+	* @return the field2 of this foo
+	*/
 	@Override
 	public boolean getField2() {
-		return model.getField2();
+		return _foo.getField2();
 	}
 
 	/**
-	 * Returns the field3 of this foo.
-	 *
-	 * @return the field3 of this foo
-	 */
+	* Returns the field3 of this foo.
+	*
+	* @return the field3 of this foo
+	*/
 	@Override
 	public int getField3() {
-		return model.getField3();
+		return _foo.getField3();
 	}
 
 	/**
-	 * Returns the field4 of this foo.
-	 *
-	 * @return the field4 of this foo
-	 */
+	* Returns the field4 of this foo.
+	*
+	* @return the field4 of this foo
+	*/
 	@Override
 	public Date getField4() {
-		return model.getField4();
+		return _foo.getField4();
 	}
 
 	/**
-	 * Returns the field5 of this foo.
-	 *
-	 * @return the field5 of this foo
-	 */
+	* Returns the field5 of this foo.
+	*
+	* @return the field5 of this foo
+	*/
 	@Override
 	public String getField5() {
-		return model.getField5();
+		return _foo.getField5();
 	}
 
 	/**
-	 * Returns the foo ID of this foo.
-	 *
-	 * @return the foo ID of this foo
-	 */
+	* Returns the foo ID of this foo.
+	*
+	* @return the foo ID of this foo
+	*/
 	@Override
 	public long getFooId() {
-		return model.getFooId();
+		return _foo.getFooId();
 	}
 
 	/**
-	 * Returns the group ID of this foo.
-	 *
-	 * @return the group ID of this foo
-	 */
+	* Returns the group ID of this foo.
+	*
+	* @return the group ID of this foo
+	*/
 	@Override
 	public long getGroupId() {
-		return model.getGroupId();
+		return _foo.getGroupId();
 	}
 
 	/**
-	 * Returns the modified date of this foo.
-	 *
-	 * @return the modified date of this foo
-	 */
+	* Returns the modified date of this foo.
+	*
+	* @return the modified date of this foo
+	*/
 	@Override
 	public Date getModifiedDate() {
-		return model.getModifiedDate();
+		return _foo.getModifiedDate();
 	}
 
 	/**
-	 * Returns the primary key of this foo.
-	 *
-	 * @return the primary key of this foo
-	 */
+	* Returns the primary key of this foo.
+	*
+	* @return the primary key of this foo
+	*/
 	@Override
 	public long getPrimaryKey() {
-		return model.getPrimaryKey();
+		return _foo.getPrimaryKey();
+	}
+
+	@Override
+	public Serializable getPrimaryKeyObj() {
+		return _foo.getPrimaryKeyObj();
 	}
 
 	/**
-	 * Returns the user ID of this foo.
-	 *
-	 * @return the user ID of this foo
-	 */
+	* Returns the user ID of this foo.
+	*
+	* @return the user ID of this foo
+	*/
 	@Override
 	public long getUserId() {
-		return model.getUserId();
+		return _foo.getUserId();
 	}
 
 	/**
-	 * Returns the user name of this foo.
-	 *
-	 * @return the user name of this foo
-	 */
+	* Returns the user name of this foo.
+	*
+	* @return the user name of this foo
+	*/
 	@Override
 	public String getUserName() {
-		return model.getUserName();
+		return _foo.getUserName();
 	}
 
 	/**
-	 * Returns the user uuid of this foo.
-	 *
-	 * @return the user uuid of this foo
-	 */
+	* Returns the user uuid of this foo.
+	*
+	* @return the user uuid of this foo
+	*/
 	@Override
 	public String getUserUuid() {
-		return model.getUserUuid();
+		return _foo.getUserUuid();
 	}
 
 	/**
-	 * Returns the uuid of this foo.
-	 *
-	 * @return the uuid of this foo
-	 */
+	* Returns the uuid of this foo.
+	*
+	* @return the uuid of this foo
+	*/
 	@Override
 	public String getUuid() {
-		return model.getUuid();
+		return _foo.getUuid();
+	}
+
+	@Override
+	public int hashCode() {
+		return _foo.hashCode();
+	}
+
+	@Override
+	public boolean isCachedModel() {
+		return _foo.isCachedModel();
+	}
+
+	@Override
+	public boolean isEscapedModel() {
+		return _foo.isEscapedModel();
 	}
 
 	/**
-	 * Returns <code>true</code> if this foo is field2.
-	 *
-	 * @return <code>true</code> if this foo is field2; <code>false</code> otherwise
-	 */
+	* Returns <code>true</code> if this foo is field2.
+	*
+	* @return <code>true</code> if this foo is field2; <code>false</code> otherwise
+	*/
 	@Override
 	public boolean isField2() {
-		return model.isField2();
+		return _foo.isField2();
+	}
+
+	@Override
+	public boolean isNew() {
+		return _foo.isNew();
 	}
 
 	@Override
 	public void persist() {
-		model.persist();
+		_foo.persist();
+	}
+
+	@Override
+	public void setCachedModel(boolean cachedModel) {
+		_foo.setCachedModel(cachedModel);
 	}
 
 	/**
-	 * Sets the company ID of this foo.
-	 *
-	 * @param companyId the company ID of this foo
-	 */
+	* Sets the company ID of this foo.
+	*
+	* @param companyId the company ID of this foo
+	*/
 	@Override
 	public void setCompanyId(long companyId) {
-		model.setCompanyId(companyId);
+		_foo.setCompanyId(companyId);
 	}
 
 	/**
-	 * Sets the create date of this foo.
-	 *
-	 * @param createDate the create date of this foo
-	 */
+	* Sets the create date of this foo.
+	*
+	* @param createDate the create date of this foo
+	*/
 	@Override
 	public void setCreateDate(Date createDate) {
-		model.setCreateDate(createDate);
+		_foo.setCreateDate(createDate);
+	}
+
+	@Override
+	public void setExpandoBridgeAttributes(
+		com.liferay.portal.kernel.model.BaseModel<?> baseModel) {
+		_foo.setExpandoBridgeAttributes(baseModel);
+	}
+
+	@Override
+	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge) {
+		_foo.setExpandoBridgeAttributes(expandoBridge);
+	}
+
+	@Override
+	public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
+		_foo.setExpandoBridgeAttributes(serviceContext);
 	}
 
 	/**
-	 * Sets the field1 of this foo.
-	 *
-	 * @param field1 the field1 of this foo
-	 */
+	* Sets the field1 of this foo.
+	*
+	* @param field1 the field1 of this foo
+	*/
 	@Override
 	public void setField1(String field1) {
-		model.setField1(field1);
+		_foo.setField1(field1);
 	}
 
 	/**
-	 * Sets whether this foo is field2.
-	 *
-	 * @param field2 the field2 of this foo
-	 */
+	* Sets whether this foo is field2.
+	*
+	* @param field2 the field2 of this foo
+	*/
 	@Override
 	public void setField2(boolean field2) {
-		model.setField2(field2);
+		_foo.setField2(field2);
 	}
 
 	/**
-	 * Sets the field3 of this foo.
-	 *
-	 * @param field3 the field3 of this foo
-	 */
+	* Sets the field3 of this foo.
+	*
+	* @param field3 the field3 of this foo
+	*/
 	@Override
 	public void setField3(int field3) {
-		model.setField3(field3);
+		_foo.setField3(field3);
 	}
 
 	/**
-	 * Sets the field4 of this foo.
-	 *
-	 * @param field4 the field4 of this foo
-	 */
+	* Sets the field4 of this foo.
+	*
+	* @param field4 the field4 of this foo
+	*/
 	@Override
 	public void setField4(Date field4) {
-		model.setField4(field4);
+		_foo.setField4(field4);
 	}
 
 	/**
-	 * Sets the field5 of this foo.
-	 *
-	 * @param field5 the field5 of this foo
-	 */
+	* Sets the field5 of this foo.
+	*
+	* @param field5 the field5 of this foo
+	*/
 	@Override
 	public void setField5(String field5) {
-		model.setField5(field5);
+		_foo.setField5(field5);
 	}
 
 	/**
-	 * Sets the foo ID of this foo.
-	 *
-	 * @param fooId the foo ID of this foo
-	 */
+	* Sets the foo ID of this foo.
+	*
+	* @param fooId the foo ID of this foo
+	*/
 	@Override
 	public void setFooId(long fooId) {
-		model.setFooId(fooId);
+		_foo.setFooId(fooId);
 	}
 
 	/**
-	 * Sets the group ID of this foo.
-	 *
-	 * @param groupId the group ID of this foo
-	 */
+	* Sets the group ID of this foo.
+	*
+	* @param groupId the group ID of this foo
+	*/
 	@Override
 	public void setGroupId(long groupId) {
-		model.setGroupId(groupId);
+		_foo.setGroupId(groupId);
 	}
 
 	/**
-	 * Sets the modified date of this foo.
-	 *
-	 * @param modifiedDate the modified date of this foo
-	 */
+	* Sets the modified date of this foo.
+	*
+	* @param modifiedDate the modified date of this foo
+	*/
 	@Override
 	public void setModifiedDate(Date modifiedDate) {
-		model.setModifiedDate(modifiedDate);
+		_foo.setModifiedDate(modifiedDate);
+	}
+
+	@Override
+	public void setNew(boolean n) {
+		_foo.setNew(n);
 	}
 
 	/**
-	 * Sets the primary key of this foo.
-	 *
-	 * @param primaryKey the primary key of this foo
-	 */
+	* Sets the primary key of this foo.
+	*
+	* @param primaryKey the primary key of this foo
+	*/
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		model.setPrimaryKey(primaryKey);
+		_foo.setPrimaryKey(primaryKey);
+	}
+
+	@Override
+	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
+		_foo.setPrimaryKeyObj(primaryKeyObj);
 	}
 
 	/**
-	 * Sets the user ID of this foo.
-	 *
-	 * @param userId the user ID of this foo
-	 */
+	* Sets the user ID of this foo.
+	*
+	* @param userId the user ID of this foo
+	*/
 	@Override
 	public void setUserId(long userId) {
-		model.setUserId(userId);
+		_foo.setUserId(userId);
 	}
 
 	/**
-	 * Sets the user name of this foo.
-	 *
-	 * @param userName the user name of this foo
-	 */
+	* Sets the user name of this foo.
+	*
+	* @param userName the user name of this foo
+	*/
 	@Override
 	public void setUserName(String userName) {
-		model.setUserName(userName);
+		_foo.setUserName(userName);
 	}
 
 	/**
-	 * Sets the user uuid of this foo.
-	 *
-	 * @param userUuid the user uuid of this foo
-	 */
+	* Sets the user uuid of this foo.
+	*
+	* @param userUuid the user uuid of this foo
+	*/
 	@Override
 	public void setUserUuid(String userUuid) {
-		model.setUserUuid(userUuid);
+		_foo.setUserUuid(userUuid);
 	}
 
 	/**
-	 * Sets the uuid of this foo.
-	 *
-	 * @param uuid the uuid of this foo
-	 */
+	* Sets the uuid of this foo.
+	*
+	* @param uuid the uuid of this foo
+	*/
 	@Override
 	public void setUuid(String uuid) {
-		model.setUuid(uuid);
+		_foo.setUuid(uuid);
+	}
+
+	@Override
+	public com.liferay.portal.kernel.model.CacheModel<Foo> toCacheModel() {
+		return _foo.toCacheModel();
+	}
+
+	@Override
+	public Foo toEscapedModel() {
+		return new FooWrapper(_foo.toEscapedModel());
+	}
+
+	@Override
+	public String toString() {
+		return _foo.toString();
+	}
+
+	@Override
+	public Foo toUnescapedModel() {
+		return new FooWrapper(_foo.toUnescapedModel());
+	}
+
+	@Override
+	public String toXmlString() {
+		return _foo.toXmlString();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+
+		if (!(obj instanceof FooWrapper)) {
+			return false;
+		}
+
+		FooWrapper fooWrapper = (FooWrapper)obj;
+
+		if (Objects.equals(_foo, fooWrapper._foo)) {
+			return true;
+		}
+
+		return false;
 	}
 
 	@Override
 	public StagedModelType getStagedModelType() {
-		return model.getStagedModelType();
+		return _foo.getStagedModelType();
 	}
 
 	@Override
-	protected FooWrapper wrap(Foo foo) {
-		return new FooWrapper(foo);
+	public Foo getWrappedModel() {
+		return _foo;
 	}
 
+	@Override
+	public boolean isEntityCacheEnabled() {
+		return _foo.isEntityCacheEnabled();
+	}
+
+	@Override
+	public boolean isFinderCacheEnabled() {
+		return _foo.isFinderCacheEnabled();
+	}
+
+	@Override
+	public void resetOriginalValues() {
+		_foo.resetOriginalValues();
+	}
+
+	private final Foo _foo;
 }
